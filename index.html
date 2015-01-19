@@ -68,19 +68,42 @@
 					<section>
 						<h2>Origines</h2>
 						<ul>
-							<li>1860: Charles Darwin publie son livre intitulé "L'origine des espèces au moyen de la sélection naturelle ou la lutte pour l'existence dans la nature" et expose sa théorie de l'évolution des espèces.
-							<li>1960: John Holland ainsi que ses collègues et élèves de l'Université du Michigan débutent des travaux de recherche sur les algorithmes génétiques</li>
-							<li>1966 : Le Docteur dLawrence J. Fogel présente sa thèse sur la programmation évolutionnaire. 
-							<li>1973: Ingo Rechenberg travaille sur des méthodes d'optimisation connu sous le nom de "Stratégie d'évolution".
-							<li>1975: John Holland introduit le premier modèle formel des algorithmes génétiques avec la prise en compte de l'opérateur d'enjambement en complément des mutations. Ce modèle servira de base aux recherches ultèrieures.</li>
+							<li>1860 : Charles Darwin publie son livre intitulé "L'origine des espèces au moyen de la sélection naturelle ou la lutte pour l'existence dans la nature" et expose sa théorie de l'évolution des espèces.
+							
+						</ul>
+					</section>
+					<section>
+						<ul>
+							<li>1960 : John Holland ainsi que ses collègues et élèves de l'Université du Michigan débutent des travaux de recherche sur les algorithmes génétiques.</li>
+							<li>1966 : Le Docteur Lawrence J. Fogel présente sa thèse sur la programmation évolutionnaire. 
+							<li>1973 : Ingo Rechenberg travaille sur des méthodes d'optimisation connu sous le nom de "Stratégie d'évolution".
+							<li>1975 : John Holland introduit le premier modèle formel des algorithmes génétiques avec la prise en compte de l'opérateur d'enjambement en complément des mutations. Ce modèle servira de base aux recherches ultèrieures.</li>
 						</ul>
 					</section>
 				</section>
 
 				<section>
-					<h2>La selection</h2>
+					<h2>Principe</h2>
+					<p>Il faut commencer par générer une population de n individus initiaux. La population d'individus doit être non homogène et servira de base pour les générations futures. Par analogie avec la génétique, chaque individu est codé par un chromosome (comportant donc plusieurs gènes).</p>
+					<p>On évalue les différentes solutions proposées, afin de les "classer" en fonction de leur pertinence, et de voir quelles sont les meilleures. Pour cela, on utilise la fonction "fitness", ou fonction d’évaluation. L’évaluation de chacun des individus de la population permet ensuite de faire la sélection.</p>
+					<p>La population sélectionnée est divisée en couples, formés aléatoirement. L’algorithme sélectionne un ou plusieurs gène(s) sur chacun des deux individus (pour chaque couple).</p>
+					<p>Le principe est d’inverser un bit (ou de remplacer un caractère, selon le codage choisi) au hasard. La probabilité doit être assez faible pour ne pas tomber dans un algorithme aléatoire (entre 0,1% et 1% en général).</p>
+					<p>Le principe des algorithmes génétiques est d'effectuer ces opérations un maximum de fois de façon à augmenter la justesse du résultat. On peut choisir d’arrêter l’algorithme lorsqu’un individu obtient une note jugée suffisamment satisfaisante, ou après un certain nombre de générations</p>
+				</section>
+
+				<section>
+					<h2>Le codage ou modelisation</h2>
 					<ol>
-						<li>la roulette</li>
+						<li>codage binaire</li>
+						<li>codage à caractères multiples</li>
+						<li>codage sous forme d'arbre</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>La selection ou fonction fitness</h2>
+					<ol>
+						<li>la selection par roulette</li>
 						<li>la selection par rang</li>
 						<li>la selection steady-state</li>
 						<li>la selection par tournoi</li>
@@ -89,23 +112,35 @@
 				</section>
 
 				<section>
-					hybridation - crossover - croisement
+					<h2>Le croisement ou hybridation ou enjambement ou crossover</h2>
+
 				</section>
 
 				
 				<section>
-http://pro.cleamax.fr/info-bioinspiree/?p=gene
-http://khayyam.developpez.com/articles/algo/genetic/
-http://sis.univ-tln.fr/~tollari/TER/AlgoGen1/node5.html
-http://fr.wikipedia.org/wiki/Algorithme_g%C3%A9n%C3%A9tique
-				</section>
-
+					<h2>La fonction d'évaluation</h2>
 				</section>
 
 				<section>
-					<h1>"La vie trouve toujours son chemin."</h1>
-					<small>Dr Ian Malcolm , Jurassic Park</small>
+					<h2>Conclusion</h2>
+					Si les algorithmes génétiques convergent vers une solution, quand cette solution est inconnue, rien n’assure que le résultat soit la solution optimale ; d’où une nécessité d’effectuer un grand nombre de simulations. Au début, les solutions vont s’améliorer rapidement (recherche globale), mais par la suite, elles peuvent rester longtemps proches de la solution optimale sans jamais l’atteindre (recherche locale). De plus, le temps de calcul est relativement long : il faut donc l’utiliser pour les cas où le nombre de solutions est vraiment important, afin de "rentabiliser" (pour les problèmes avec peu de solutions, la méthode exhaustive est plus rapide, et donne la solution optimale). Il faut ajouter que la fonction de fitness, et certains paramètres comme le taux de mutation ou la taille de la population sont difficiles à mettre en place.
 				</section>
+
+				<section>
+					<section>
+						<h1>"La vie trouve toujours son chemin."</h1>
+						<small>Dr Ian Malcolm , Jurassic Park</small>
+					</section>
+					<section>
+						<ol>
+							<li>http://pro.cleamax.fr/info-bioinspiree/?p=gene</li>
+							<li>http://khayyam.developpez.com/articles/algo/genetic/</li>
+							<li>http://sis.univ-tln.fr/~tollari/TER/AlgoGen1/node5.html</li>
+							<li>http://fr.wikipedia.org/wiki/Algorithme_g%C3%A9n%C3%A9tique</li>
+						</ol>
+					</section>
+				</section>
+
 
 			</div>
 
