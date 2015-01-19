@@ -83,12 +83,17 @@
 				</section>
 
 				<section>
-					<h2>Principe</h2>
-					<p>Il faut commencer par générer une population de n individus initiaux. La population d'individus doit être non homogène et servira de base pour les générations futures. Par analogie avec la génétique, chaque individu est codé par un chromosome (comportant donc plusieurs gènes).</p>
-					<p>On évalue les différentes solutions proposées, afin de les "classer" en fonction de leur pertinence, et de voir quelles sont les meilleures. Pour cela, on utilise la fonction "fitness", ou fonction d’évaluation. L’évaluation de chacun des individus de la population permet ensuite de faire la sélection.</p>
-					<p>La population sélectionnée est divisée en couples, formés aléatoirement. L’algorithme sélectionne un ou plusieurs gène(s) sur chacun des deux individus (pour chaque couple).</p>
-					<p>Le principe est d’inverser un bit (ou de remplacer un caractère, selon le codage choisi) au hasard. La probabilité doit être assez faible pour ne pas tomber dans un algorithme aléatoire (entre 0,1% et 1% en général).</p>
-					<p>Le principe des algorithmes génétiques est d'effectuer ces opérations un maximum de fois de façon à augmenter la justesse du résultat. On peut choisir d’arrêter l’algorithme lorsqu’un individu obtient une note jugée suffisamment satisfaisante, ou après un certain nombre de générations</p>
+					<section>
+						<h2>Principe</h2>
+						<p>Il faut commencer par générer une population de n individus initiaux. La population d'individus doit être non homogène et servira de base pour les générations futures. Par analogie avec la génétique, chaque individu est codé par un chromosome (comportant donc plusieurs gènes).</p>
+						<p>On évalue les différentes solutions proposées, afin de les "classer" en fonction de leur pertinence, et de voir quelles sont les meilleures. Pour cela, on utilise la fonction "fitness", ou fonction d’évaluation. L’évaluation de chacun des individus de la population permet ensuite de faire la sélection.</p>
+						<p>La population sélectionnée est divisée en couples, formés aléatoirement. L’algorithme sélectionne un ou plusieurs gène(s) sur chacun des deux individus (pour chaque couple).</p>
+						<p>Le principe est d’inverser un bit (ou de remplacer un caractère, selon le codage choisi) au hasard. La probabilité doit être assez faible pour ne pas tomber dans un algorithme aléatoire (entre 0,1% et 1% en général).</p>
+						<p>Le principe des algorithmes génétiques est d'effectuer ces opérations un maximum de fois de façon à augmenter la justesse du résultat. On peut choisir d’arrêter l’algorithme lorsqu’un individu obtient une note jugée suffisamment satisfaisante, ou après un certain nombre de générations</p>
+					</section>
+					<section>
+						<img height="710px" width ="600px" src="img/diagrammeAG.jpg" >
+					</section>
 				</section>
 
 				<section>
@@ -101,29 +106,127 @@
 				</section>
 
 				<section>
-					<h2>La selection ou fonction fitness</h2>
-					<ol>
-						<li>la selection par roulette</li>
-						<li>la selection par rang</li>
-						<li>la selection steady-state</li>
-						<li>la selection par tournoi</li>
-						<li>l'élitisme</li>
-					</ol>
-				</section>
-
-				<section>
-					<h2>Le croisement ou hybridation ou enjambement ou crossover</h2>
-
-				</section>
-
-				
-				<section>
 					<h2>La fonction d'évaluation</h2>
 				</section>
 
 				<section>
-					<h2>Conclusion</h2>
-					Si les algorithmes génétiques convergent vers une solution, quand cette solution est inconnue, rien n’assure que le résultat soit la solution optimale ; d’où une nécessité d’effectuer un grand nombre de simulations. Au début, les solutions vont s’améliorer rapidement (recherche globale), mais par la suite, elles peuvent rester longtemps proches de la solution optimale sans jamais l’atteindre (recherche locale). De plus, le temps de calcul est relativement long : il faut donc l’utiliser pour les cas où le nombre de solutions est vraiment important, afin de "rentabiliser" (pour les problèmes avec peu de solutions, la méthode exhaustive est plus rapide, et donne la solution optimale). Il faut ajouter que la fonction de fitness, et certains paramètres comme le taux de mutation ou la taille de la population sont difficiles à mettre en place.
+					<section>
+						<h2>La selection ou fonction fitness</h2>
+						<ol>
+							<li>la selection par roulette</li>
+							<li>la selection par rang</li>
+							<li>la selection steady-state</li>
+							<li>la selection par tournoi</li>
+							<li>l'élitisme</li>
+						</ol>
+					</section>
+					<section>
+						<h2>La selection par roulette</h2>
+						<img width="543px" height="485px" src="img/roue.png">
+					</section>
+					<section>
+						<h2>La selection par rang</h2>
+						<table>
+							<thead>
+								<th>Chromosomes</th>
+								<th>1</th>
+								<th>2</th>
+								<th>3</th>
+								<th>4</th>
+								<th>5</th>
+								<th>6</th>
+								<th>Total</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Evaluation</td>
+									<td>89</td>
+									<td>5</td>
+									<td>1</td>
+									<td>4</td>
+									<td>3</td>
+									<td>2</td>
+									<td>100</td>
+								</tr>
+								<tr>
+									<td>Rang</td>
+									<td>6</td>
+									<td>5</td>
+									<td>1</td>
+									<td>4</td>
+									<td>3</td>
+									<td>2</td>
+									<td>21</td>
+								</tr>
+								<tr>
+									<td>Probabilité</td>
+									<td>29%</td>
+									<td>24%</td>
+									<td>5%</td>
+									<td>19%</td>
+									<td>14%</td>
+									<td>9%</td>
+									<td>100%</td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Le croisement ou hybridation ou enjambement ou crossover</h2>
+						Il n'est pas nécessaire et surtout pas recommandé de croiser tous les individus d'une population, car rien ne nous dit si le résultat d'un croisement sera meilleur ou moins bon que les individus parents.
+					</section>
+					<section>
+						<img src="img/genes.png">
+					</section>
+				</section>
+
+				<section>
+					<h2>La mutation</h2>
+				</section>
+
+				<section>
+					<h2>Insertion des nouveaux individus dans la population</h2>
+					Une fois que nous avons créé de nouveaux individus que ce soit par croisements ou par mutations, il nous faut sélectionner ceux qui vont continuer à participer à l'amélioration de notre population. Une fois encore, libre au programmeur de choisir ceux qu'il souhaite conserver. Il est possible de refaire une étape d'évaluation des individus nouvellement créés. De même qu'il est possible de conserver tous les nouveaux individus en plus de notre population.
+
+					Il n'est toutefois pas recommandé de ne conserver que les nouveaux individus et d'oublier la population de travail. En effet, rien ne nous dit que les nouveaux individus sont meilleurs que les individus de départ.
+
+					Une méthode relativement efficace consiste à insérer les nouveaux individus dans la population, à trier cette population selon l'évaluation de ses membres, et à ne conserver que les N meilleurs individus.
+				</section>
+
+				<section>
+					<section>
+						<h2>Itérations</h2>
+						Effectuer ces opérations un maximum de fois de façon à augmenter la justesse du résultat. On peut choisir d’arrêter l’algorithme lorsqu’un individu obtient une note jugée suffisamment satisfaisante, ou après un certain nombre de générations 
+					</section>
+					<section>
+						<img src="img/schema_gen.gif" >
+					</section>
+				</section>
+
+				<section>
+					<h2>Applications</h2>
+					<ol>
+						<li>les algorithmes génétiques ont été mis à contribution en économie et en finance.</li>
+						<li>certaines industries utilisent les algorithmes génétiques pour la programmation des robots d'assemblage, dans l'industrie automobile par exemple, ou dans le domaine de l'aérodynamique dans un souci d'optimisation structurelle.</li>
+						<li>mise en place de logiciels d’optimisation comme Evolver pour Microsoft Excel par exemple.</li>
+						<li>La NASA a adopté ces algorithmes dans le cadre de l’exploration de Mars pour les déplacements du robot utilisé.</li>
+					</ol>
+				</section>
+
+				<section>
+					<section>
+						<h2>Limites</h2>
+						<ol>
+							<li>Si les algorithmes génétiques convergent vers une solution, quand cette solution est inconnue, rien n’assure que le résultat soit la solution optimale ; d’où une nécessité d’effectuer un grand nombre de simulations. Au début, les solutions vont s’améliorer rapidement (recherche globale), mais par la suite, elles peuvent rester longtemps proches de la solution optimale sans jamais l’atteindre (recherche locale). De plus, le temps de calcul est relativement long : il faut donc l’utiliser pour les cas où le nombre de solutions est vraiment important, afin de "rentabiliser" (pour les problèmes avec peu de solutions, la méthode exhaustive est plus rapide, et donne la solution optimale).</li>
+							<li> la fonction de fitness, et certains paramètres comme le taux de mutation ou la taille de la population sont difficiles à mettre en place.</li>
+						</ol>
+					</section>
+					<section>
+						<img src="img/cochon.jpg">
+					</section>
 				</section>
 
 				<section>
