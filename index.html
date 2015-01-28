@@ -90,13 +90,9 @@
 					<section>
 						<p>On évalue les différentes solutions proposées, afin de les "classer" en fonction de leur pertinence. Pour cela, on utilise une fonction d’évaluation qui permettra ensuite de faire la sélection.</p>
 						<p>La population sélectionnée est divisée en couples, formés aléatoirement. L’algorithme sélectionne un ou plusieurs gène(s) sur chacun des deux individus.</p>
-						<p>On applique ensuite un algorithme qui aura pour role de modifier un gêne au hasard. La probabilité doit être assez faible.</p>
-					</section>
-					<section>
-						<p>Il ne reste plus qu'à effectuer ces opérations un maximum de fois de façon à augmenter la justesse du résultat. On peut choisir d’arrêter l’algorithme lorsqu’un individu obtient une note jugée suffisamment satisfaisante, ou après un certain nombre de générations.</p>
-					</section>
-					<section>
-						<img height="710px" width ="600px" src="img/diagrammeAG.jpg" >
+						<p>On applique ensuite un algorithme qui aura pour role de modifier un gêne au hasard.
+						</p>
+						<p>On effectue ces opérations un maximum de fois de façon à augmenter la justesse du résultat.</p>
 					</section>
 				</section>
 
@@ -120,7 +116,7 @@
 				<section>
 					<h2>La fonction d'évaluation ou fonction fitness</h2>
 					<p>
-						Pour calculer le coût d'un point de l'espace de recherche, on utilise une fonction d'évaluation. L'évaluation d'un individu ne dépendant pas de celle des autres individus, le résultat fournit par la fonction d'évaluation va permettre de sélectionner ou de refuser un individu pour ne garder que les individus ayant le meilleur coût en fonction de la population courante : c'est le rôle de la fonction fitness. Cette méthode permet de s'assurer que les individus performants seront conservés, alors que les individus peu adaptés seront progressivement éliminés de la population.
+						La fonction d'évalation sera utilisée pour calculer le score d'un individu (point dans l'espace de recherche). L'évaluation d'un individu ne dépendant pas de celle des autres individus, le résultat fournit par la fonction d'évaluation va permettre de sélectionner ou de refuser un individu.
 					</p>
 				</section>
 
@@ -137,57 +133,61 @@
 					</section>
 					<section>
 						<h2>La selection par roulette</h2>
-						<img width="543px" height="485px" src="img/roue.png">
+						<p>
+							<img width="543px" height="485px" src="img/roue.png">
+						</p>
 					</section>
 					<section>
 						<h2>La selection par rang</h2>
-						<table>
-							<thead>
-								<th>Chromosomes</th>
-								<th>1</th>
-								<th>2</th>
-								<th>3</th>
-								<th>4</th>
-								<th>5</th>
-								<th>6</th>
-								<th>Total</th>
-							</thead>
-							<tbody>
-								<tr>
-									<td>Evaluation</td>
-									<td>89</td>
-									<td>5</td>
-									<td>1</td>
-									<td>4</td>
-									<td>3</td>
-									<td>2</td>
-									<td>100</td>
-								</tr>
-								<tr>
-									<td>Rang</td>
-									<td>6</td>
-									<td>5</td>
-									<td>1</td>
-									<td>4</td>
-									<td>3</td>
-									<td>2</td>
-									<td>21</td>
-								</tr>
-								<tr>
-									<td>Probabilité</td>
-									<td>29%</td>
-									<td>24%</td>
-									<td>5%</td>
-									<td>19%</td>
-									<td>14%</td>
-									<td>9%</td>
-									<td>100%</td>
-								</tr>
-							</tbody>
-						</table>
+						<p>
+							<table>
+								<thead>
+									<th>Chromosomes</th>
+									<th>1</th>
+									<th>2</th>
+									<th>3</th>
+									<th>4</th>
+									<th>5</th>
+									<th>6</th>
+									<th>Total</th>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Evaluation</td>
+										<td>89</td>
+										<td>5</td>
+										<td>1</td>
+										<td>4</td>
+										<td>3</td>
+										<td>2</td>
+										<td>100</td>
+									</tr>
+									<tr>
+										<td>Rang</td>
+										<td>6</td>
+										<td>5</td>
+										<td>1</td>
+										<td>4</td>
+										<td>3</td>
+										<td>2</td>
+										<td>21</td>
+									</tr>
+									<tr>
+										<td>Probabilité</td>
+										<td>29%</td>
+										<td>24%</td>
+										<td>5%</td>
+										<td>19%</td>
+										<td>14%</td>
+										<td>9%</td>
+										<td>100%</td>
+									</tr>
+								</tbody>
+							</table>
+						</p>
 					</section>
 					<section>
-						<h2>La sélection steady-state</h2>
+						<h2>La selection steady-state</h2>
 						<p>
 							A chaque génération sont sélectionnés quelques chromosomes parmi ceux qui ont le meilleur résultat pour créer des chromosomes fils. Ensuite les chromosomes les plus mauvais sont retirés et remplacés par les nouveaux. Le reste de la population survie à la nouvelle génération.
 						</p>
@@ -195,7 +195,13 @@
 					<section>
 						<h2>La sélection par tournoi</h2>
 						<p>
-							Le principe de la sélection par tournoi augmente les chances pour les individus de piètre qualité de participer à l'amélioration de la population. Un tournoi consiste en une rencontre entre plusieurs individus pris au hasard dans la population. Le vainqueur du tournoi est l'individu de meilleure qualité. Vous pouvez choisir de ne conserver que le vainqueur comme vous pouvez choisir de conserver les 2 meilleurs individus ou les 3 meilleurs. A vous de voir, selon que vous souhaitez créer beaucoup de tournois, ou bien créer des tournois avec beaucoup de participants ou bien mettre en avant ceux qui gagnent les tournois haut la main. Vous pouvez faire participer un même individu à plusieurs tournois.
+							 Un tournoi consiste en une rencontre entre plusieurs individus pris au hasard dans la population. Le vainqueur du tournoi est l'individu de meilleure qualité. Il est possible de ne conserver que le vainqueur comme de conserver les 2 meilleurs individus ou les 3 meilleurs. Cela dépend du choix développeur, selon qu'il souhaite créer beaucoup de tournois, ou bien créer des tournois avec beaucoup de participants.
+						</p>
+						<p>
+							Il est possible faire participer un même individu à plusieurs tournois.
+						</p>
+						<p>
+							Le principe de la sélection par tournoi augmente les chances pour les individus de piètre qualité de participer à l'amélioration de la population.
 						</p>
 					</section>
 					<section>
@@ -210,89 +216,84 @@
 					<section>
 						<h2>Le croisement ou hybridation ou enjambement ou crossover</h2>
 						<p>
-							A partir de deux individus, on obtient deux nouveaux individus (enfants) qui héritent de certaines caractéristiques de leurs parents. L'hybridation sélectionnne des gènes parmis deux individus appelés parents. A partir de ces gènes sont générés les enfants
+							A partir de deux individus, on obtient deux nouveaux individus (enfants) qui héritent de certaines caractéristiques de leurs parents. L'hybridation sélectionnne des gènes parmis deux individus appelés parents. A partir de ces gènes sont générés les enfants.
 						</p>
 						<p>
-							L'hybridation est mis en place pour que les nouveaux chromosomes gardent la meilleur partie des chromosomes anciens. Ceci dans le but d'obtenir, peut-être, de meilleurs chromosomes. 
+							L'hybridation est mis en place pour que les nouveaux chromosomes gardent une partie des chromosomes anciens. Ceci dans le but d'obtenir, peut-être, de meilleurs chromosomes. 
 						</p>
 						<p>
 							Il n'est pas nécessaire et surtout pas recommandé de croiser tous les individus d'une population, car rien ne nous dit si le résultat d'un croisement sera meilleur ou moins bon que les individus parents.
 						</p>
 					</section>
 					<section>
-						<img src="img/genes.png">
+						<img src="img/genes.png" style="width:600px">
 					</section>
 				</section>
 
 				<section>
 					<h2>La mutation</h2>
 					<p>
-						pour ne pas tomber dans un algorithme aléatoire (entre 0,1% et 1% en général)
+						Au sein d’un chromosome, un gène est substitué à un autre de manière aléatoire. Ceci permet d’éviter à l’algorithme de s'enliser dans un optimum local. 
+					</p>
+					<p>
+						Cependant, le taux de mutation ne doit pas être trop important, afin de ne pas tomber dans une recherche aléatoire. Un taux aux alentours de 1% est généralement utillisé.
 					</p>
 				</section>
 
 				<section>
 					<h2>Insertion des nouveaux individus dans la population</h2>
-					Une fois que nous avons créé de nouveaux individus que ce soit par croisements ou par mutations, il nous faut sélectionner ceux qui vont continuer à participer à l'amélioration de notre population. Une fois encore, libre au programmeur de choisir ceux qu'il souhaite conserver. Il est possible de refaire une étape d'évaluation des individus nouvellement créés. De même qu'il est possible de conserver tous les nouveaux individus en plus de notre population.
-
-					Une méthode relativement efficace consiste à insérer les nouveaux individus dans la population, à trier cette population selon l'évaluation de ses membres, et à ne conserver que les N meilleurs individus.
-
-					 
+					<p>
+					Une fois que les nouveaux individus sont créés que ce soit par croisements ou par mutations, il faut sélectionner ceux qui vont continuer à participer à l'amélioration de la population. Ce choix est totalement libre. 
+					</p>
+					<p>
+					Il est possible de refaire une étape d'évaluation des individus nouvellement créés afin de ne conserver que les N meilleurs individus.
+					 </p>
 				</section>
 
 				<section>
 					<section>
 						<h2>Itérations</h2>
-						Effectuer ces opérations un maximum de fois de façon à augmenter la justesse du résultat. On peut choisir d’arrêter l’algorithme lorsqu’un individu obtient une note jugée suffisamment satisfaisante, ou après un certain nombre de générations 
+						Il ne reste plus qu'à éffectuer ces opérations un maximum de fois de façon à augmenter la justesse du résultat. On peut choisir d’arrêter l’algorithme lorsqu’un individu obtient un score jugé suffisamment satisfaisant, ou après un certain nombre de générations.
 					</section>
 					<section>
-						<img src="img/schema_gen.gif" >
+						<img src="img/schema_gen.gif" style="width:680px">
 					</section>
 				</section>
 
 				<section>
 					<h2>Conditions d'utilisation</h2>
 					<p>
-						Comme cela a été dit plus haut, les algorithmes génétiques peuvent être une bonne solution pour résoudre un problème. Néanmoins, leur utilisation doit être conditionnée par certaines caractéristiques du problème.
-
-Les caractéristiques à prendre en compte sont les suivantes :
-
-Le temps de calcul de la fonction d'évalutation (fitness en anglais) doit être raisonnablement court. En effet, celle-ci sera évaluée de nombreuses fois.
-Nombre de solutions important : les performances des algorithmes génétiques par rapport aux algorithmes classiques sont plus marquées lorsque les espaces de recherches sont importants. En effet, pour un espace dont la taille est faible, il peut être plus sûr de parcourir cet espace de manière exhaustive afin d'obtenir la solution optimale en un temps qui restera somme toute correct. Au contraire, utiliser un algorithme génétique engendrera le risque d'obtenir une solution non optimale (voir la section limites) en un temps qui restera sensiblement identique.
-Pas d'algorithme déterministe adapté et raisonnable.
-Lorsque l'on préfère avoir une solution relativement bonne rapidement plutôt qu'avoir la solution optimale en une durée indéfinie. C'est ainsi que les algorithmes génétiques sont utilisés pour la programmation de machines qui doivent être très réactives aux conditions environnantes.
+						Les algorithmes génétiques peuvent être une bonne solution pour résoudre un problème. Néanmoins, leur utilisation doit être conditionnée par certaines caractéristiques du problème :
+<ul>
+	<li>Le temps de calcul de la fonction d'évalutation doit être relativement court.
+	</li>
+	<li>L'espace de recherches doit être important. En effet, pour un espace dont la taille est faible, il peut être plus sûr de parcourir cet espace de manière exhaustive afin d'obtenir la solution optimale.</li>
+	<li>Il n'existe pas d'algorithmes déterministes adaptés et raisonnables.</li>
+	<li>Lorsque l'on préfère avoir une solution relativement bonne rapidement plutôt qu'avoir la solution optimale en une durée indéfinie (programmation de machines qui doivent être très réactives aux conditions environnantes).</li>
+</ul>
 					</p>
 				</section>
 
 				<section>
 					<h2>Applications</h2>
-					<ol>
-						<li>les algorithmes génétiques ont été mis à contribution en économie et en finance.</li>
-						<li>certaines industries utilisent les algorithmes génétiques pour la programmation des robots d'assemblage, dans l'industrie automobile par exemple, ou dans le domaine de l'aérodynamique dans un souci d'optimisation structurelle.</li>
-						<li>mise en place de logiciels d’optimisation comme Evolver pour Microsoft Excel par exemple.</li>
+					<ul>
+						<li>Les algorithmes génétiques ont été mis à contribution en économie et en finance.</li>
+						<li>Certaines industries utilisent les algorithmes génétiques pour la programmation des robots d'assemblage, dans l'industrie automobile par exemple, ou dans le domaine de l'aérodynamique dans un souci d'optimisation structurelle.</li>
+						<li>Mise en place de logiciels d’optimisation comme Evolver pour Microsoft Excel.</li>
 						<li>La NASA a adopté ces algorithmes dans le cadre de l’exploration de Mars pour les déplacements du robot Pathfinder.</li>
-					</ol>
+					</ul>
 				</section>
 
 				<section>
 					<section>
 						<h2>Limites</h2>
-						<ol>
-							<li>Si les algorithmes génétiques convergent vers une solution, quand cette solution est inconnue, rien n’assure que le résultat soit la solution optimale ; d’où une nécessité d’effectuer un grand nombre de simulations. Au début, les solutions vont s’améliorer rapidement (recherche globale), mais par la suite, elles peuvent rester longtemps proches de la solution optimale sans jamais l’atteindre (recherche locale). De plus, le temps de calcul est relativement long : il faut donc l’utiliser pour les cas où le nombre de solutions est vraiment important, afin de "rentabiliser" (pour les problèmes avec peu de solutions, la méthode exhaustive est plus rapide, et donne la solution optimale).</li>
-							<li> la fonction de fitness, et certains paramètres comme le taux de mutation ou la taille de la population sont difficiles à mettre en place.</li>
-						</ol>
+						<ul>
+							<li>La difficulté de la mise en place de la fonction d'évaluation ainsi que certains paramètres comme le taux de mutation ou la taille de la population.</li>
+							<li>L'impossibilité d'être assuré, même après un nombre important de générations, que la solution trouvée soit la meilleure. On peut seulement être sûr que l'on s'est approché de la solution optimale, sans la certitude de l'avoir atteinte.</li>
+						</ul>
 					</section>
 					<section>
-						<p>
-
-Le temps de calcul : par rapport à d'autres métaheuristiques, ils nécessitent de nombreux calculs, en particulier au niveau de la fonction d'évaluation.
-Ils sont le plus souvent difficiles à mettre en œuvre : des paramètres comme la taille de la population ou le taux de mutation sont parfois difficiles à déterminer. Or le succès de l'évolution en dépend et plusieurs essais sont donc nécessaires, ce qui limite encore l'efficacité de l'algorithme. En outre, choisir une bonne fonction d'évaluation est aussi critique. Celle-ci doit prendre en compte les bons paramètres du problème. Elle doit donc être choisie avec soin.
-Il faut aussi noter l'impossibilité d'être assuré, même après un nombre important de générations, que la solution trouvée soit la meilleure. On peut seulement être sûr que l'on s'est approché de la solution optimale (pour les paramètres et la fonction d'évaluation choisie), sans la certitude de l'avoir atteinte.
-Un autre problème important est celui des optima locaux. En effet, lorsqu'une population évolue, il se peut que certains individus qui à un instant occupent une place importante au sein de cette population deviennent majoritaires. À ce moment, il se peut que la population converge vers cet individu et s'écarte ainsi d'individus plus intéressants mais trop éloignés de l'individu vers lequel on converge. Pour vaincre ce problème, il existe différentes méthodes comme l'ajout de quelques individus générés aléatoirement à chaque génération, des méthodes de sélection différentes de la méthode classique…
-						</p>
-					</section>
-					<section>
-						<img src="img/cochon.jpg">
+						<img src="img/cochon.jpg" style="width: 750px">
 					</section>
 				</section>
 
