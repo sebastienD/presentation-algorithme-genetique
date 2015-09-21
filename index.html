@@ -20,6 +20,8 @@
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
+		<link rel="stylesheet" href="css/presentation.css">
+
 		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
 		<script>
 			if( window.location.search.match( /print-pdf/gi ) ) {
@@ -43,9 +45,9 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Les algorithmes genetiques</h1>
+					<h1>A la découverte des algorithmes génétiques</h1>
 					<p>
-						<small>by <a href="http://www.zenika.com">Sebastien n°2</a></small>
+						<small>by <a href="http://www.zenika.com">Sébastien DESCAMPS</a></small>
 					</p>
 				</section>
 
@@ -63,21 +65,20 @@
 					</section>
 				</section>
 
-				<!-- Example of nested vertical slides -->
 				<section>
 					<section>
 						<h2>Origines</h2>
 						<ul>
-							<li>1860 : Charles Darwin publie son livre intitulé "L'origine des espèces au moyen de la sélection naturelle ou la lutte pour l'existence dans la nature" et expose sa théorie de l'évolution des espèces.
-							
+							<li><span class="date">1860</span> : Charles Darwin publie son livre intitulé "L'origine des espèces au moyen de la sélection naturelle ou la lutte pour l'existence dans la nature" et expose sa théorie de l'évolution des espèces.
+							</li>
 						</ul>
 					</section>
 					<section>
 						<ul>
-							<li>1960 : John Holland ainsi que ses collègues et élèves de l'Université du Michigan débutent des travaux de recherche sur les algorithmes génétiques.</li>
-							<li>1966 : Le Docteur Lawrence J. Fogel présente sa thèse sur la programmation évolutionnaire. 
-							<li>1973 : Ingo Rechenberg travaille sur des méthodes d'optimisation connu sous le nom de "Stratégie d'évolution".
-							<li>1975 : John Holland introduit le premier modèle formel des algorithmes génétiques avec la prise en compte de l'opérateur d'enjambement en complément des mutations. Ce modèle servira de base aux recherches ultèrieures.</li>
+							<li><span class="date">1960</span> : John Holland ainsi que ses collègues et élèves de l'Université du Michigan débutent des travaux de recherche sur les algorithmes génétiques.</li>
+							<li><span class="date">1966</span> : Le Docteur Lawrence J. Fogel présente sa thèse sur la programmation évolutionnaire. </li>
+							<li><span class="date">1973</span> : Ingo Rechenberg travaille sur des méthodes d'optimisation connu sous le nom de "Stratégie d'évolution".</li>
+							<li><span class="date">1975</span> : John Holland introduit le premier modèle formel des algorithmes génétiques avec la prise en compte de l'opérateur d'enjambement en complément des mutations. Ce modèle servira de base aux recherches ultèrieures.</li>
 						</ul>
 					</section>
 				</section>
@@ -85,14 +86,22 @@
 				<section>
 					<section>
 						<h2>Principe</h2>
-						<p>Générer une population de n individus initiaux. La population d'individus doit être non homogène et servira de base pour les générations futures. Par analogie avec la génétique, chaque individu est codé par un chromosome (comportant donc plusieurs gènes).</p>
-					</section>
-					<section>
-						<p>On évalue les différentes solutions proposées, afin de les "classer" en fonction de leur pertinence. Pour cela, on utilise une fonction d’évaluation qui permettra ensuite de faire la sélection.</p>
-						<p>La population sélectionnée est divisée en couples, formés aléatoirement. L’algorithme sélectionne un ou plusieurs gène(s) sur chacun des deux individus.</p>
-						<p>On applique ensuite un algorithme qui aura pour role de modifier un gêne au hasard.
-						</p>
-						<p>On effectue ces opérations un maximum de fois de façon à augmenter la justesse du résultat.</p>
+						<ol>
+							<li>Générer une population de n individus initiaux. La population d'individus doit être non homogène.</li>
+							<li>On évalue les différentes solutions proposées, afin de les "classer" en fonction de leur pertinence.</li>
+							<li>La population sélectionnée est divisée en couples, formés aléatoirement. L’algorithme sélectionne un ou plusieurs gène(s) sur chacun des deux individus.</li>
+							<li>On applique ensuite un algorithme qui aura pour role de modifier un gêne au hasard.</li>
+							<li>On effectue ces opérations un maximum de fois de façon à augmenter la justesse du résultat.</li>
+						</ol>
+						<aside class="notes">
+							<ol>
+								<li>Par analogie avec la génétique, chaque individu est codé par un chromosome (comportant donc plusieurs gènes).</li>
+								<li>La population servira de base pour les générations futures. Pour cela, on utilise une fonction d’évaluation qui permettra ensuite de faire la sélection.</li>
+								<li>croisement, enjambenent</li>
+								<li>mutation</li>
+								<li>nombre d'itération, score cible atteint, temps écoulé max fixé arbitrairement atteint</li>
+							</ol>
+						</aside>
 					</section>
 				</section>
 
@@ -109,15 +118,21 @@
 					<h2>La population initiale</h2>
 					<p>
 						La taille de la population initiales est laissée à l'appéciation du programmeur.
-						Il n'est souvent pas nécessaire d'utiliser des populations démesurées. Une taille de 100 ou 150 individus s'avèrera souvent amplement suffisante, tant pour la qualité des solutions trouvées que pour le temps d'exécution de notre algorithme.
+						Une taille de 100 ou 150 individus s'avèrera souvent suffisante, tant pour la qualité des solutions trouvées que pour le temps d'exécution.
 					</p>
+					<aside class="notes">
+						Il n'est souvent pas nécessaire d'utiliser des populations démesurées. 
+					</aside>
 				</section>
 
 				<section>
 					<h2>La fonction d'évaluation ou fonction fitness</h2>
 					<p>
-						La fonction d'évalation sera utilisée pour calculer le score d'un individu (point dans l'espace de recherche). L'évaluation d'un individu ne dépendant pas de celle des autres individus, le résultat fournit par la fonction d'évaluation va permettre de sélectionner ou de refuser un individu.
+						La fonction d'évalation sera utilisée pour calculer le score d'un individu (point dans l'espace de recherche). L'évaluation d'un individu ne dépend pas de celle des autres individus. 
 					</p>
+					<aside class="notes">
+						Permettre de sélectionner ou de refuser un individu.
+					</aside>
 				</section>
 
 				<section>
@@ -126,9 +141,7 @@
 						<ol>
 							<li>la selection par roulette</li>
 							<li>la selection par rang</li>
-							<li>la selection steady-state</li>
 							<li>la selection par tournoi</li>
-							<li>l'élitisme</li>
 						</ol>
 					</section>
 					<section>
@@ -136,6 +149,9 @@
 						<p>
 							<img width="543px" height="485px" src="img/roue.png">
 						</p>
+						<aside class="notes">
+							Un individu peur être sélectionné plusieurs fois.
+						</aside>
 					</section>
 					<section>
 						<h2>La selection par rang</h2>
@@ -170,7 +186,7 @@
 										<td>4</td>
 										<td>3</td>
 										<td>2</td>
-										<td>21</td>
+										<td></td>
 									</tr>
 									<tr>
 										<td>Probabilité</td>
@@ -187,28 +203,27 @@
 						</p>
 					</section>
 					<section>
-						<h2>La selection steady-state</h2>
-						<p>
-							A chaque génération sont sélectionnés quelques chromosomes parmi ceux qui ont le meilleur résultat pour créer des chromosomes fils. Ensuite les chromosomes les plus mauvais sont retirés et remplacés par les nouveaux. Le reste de la population survie à la nouvelle génération.
-						</p>
-					</section>
-					<section>
 						<h2>La sélection par tournoi</h2>
 						<p>
-							 Un tournoi consiste en une rencontre entre plusieurs individus pris au hasard dans la population. Le vainqueur du tournoi est l'individu de meilleure qualité. Il est possible de ne conserver que le vainqueur comme de conserver les 2 meilleurs individus ou les 3 meilleurs. Cela dépend du choix développeur, selon qu'il souhaite créer beaucoup de tournois, ou bien créer des tournois avec beaucoup de participants.
+							 Un tournoi consiste en une rencontre entre plusieurs individus pris au hasard dans la population. 
 						</p>
 						<p>
-							Il est possible faire participer un même individu à plusieurs tournois.
+							Le vainqueur du tournoi est l'individu de meilleure qualité.
 						</p>
-						<p>
-							Le principe de la sélection par tournoi augmente les chances pour les individus de piètre qualité de participer à l'amélioration de la population.
-						</p>
-					</section>
-					<section>
-						<h2>L'élitisme</h2>
-						<p>
-							Elle consiste à copier un ou plusieurs des meilleurs chromosomes dans la nouvelle génération. Ensuite, on génère le reste de la population selon l'algorithme de reproduction usuel. Cette méthode améliore considérablement les algorithmes génétiques, car elle permet de ne pas perdre les meilleurs solutions.
-						</p>
+						<aside class="notes">
+							<p>
+								Il est possible faire participer un même individu à plusieurs tournois.
+							</p>
+							<p>
+								Il est possible de ne conserver que le vainqueur comme de conserver les 2 meilleurs individus ou les 3 meilleurs.
+							</p>
+							<p>
+								Cela dépend du choix développeur, selon qu'il souhaite créer beaucoup de tournois, ou bien créer des tournois avec beaucoup de participants.
+							</p>
+							<p>
+								Le principe de la sélection par tournoi augmente les chances pour les individus de moindre qualité de participer à l'amélioration de la population.
+							</p>
+						</aside>
 					</section>
 				</section>
 
@@ -216,14 +231,16 @@
 					<section>
 						<h2>Le croisement ou hybridation ou enjambement ou crossover</h2>
 						<p>
-							A partir de deux individus, on obtient deux nouveaux individus (enfants) qui héritent de certaines caractéristiques de leurs parents. L'hybridation sélectionnne des gènes parmis deux individus appelés parents. A partir de ces gènes sont générés les enfants.
+							On sélectionnne des gènes parmis deux individus appelés parents. A partir de ces gènes sont générés les enfants.
 						</p>
 						<p>
-							L'hybridation est mis en place pour que les nouveaux chromosomes gardent une partie des chromosomes anciens. Ceci dans le but d'obtenir, peut-être, de meilleurs chromosomes. 
+							Il n'est pas nécessaire et surtout pas recommandé de croiser tous les individus d'une population.
 						</p>
-						<p>
-							Il n'est pas nécessaire et surtout pas recommandé de croiser tous les individus d'une population, car rien ne nous dit si le résultat d'un croisement sera meilleur ou moins bon que les individus parents.
-						</p>
+						<aside class="notes">
+							<p>
+								L'hybridation est mis en place pour que les nouveaux chromosomes gardent une partie des chromosomes anciens. Ceci dans le but d'obtenir (ou pas) de meilleurs chromosomes. 
+							</p>
+						</aside>
 					</section>
 					<section>
 						<img src="img/genes.png" style="width:600px">
@@ -233,27 +250,61 @@
 				<section>
 					<h2>La mutation</h2>
 					<p>
-						Au sein d’un chromosome, un gène est substitué à un autre de manière aléatoire. Ceci permet d’éviter à l’algorithme de s'enliser dans un optimum local. 
+						Au sein d’un chromosome, un gène est substitué à un autre de manière aléatoire. Ceci permet d’éviter à l’algorithme de partir dans un optimum local. 
 					</p>
 					<p>
-						Cependant, le taux de mutation ne doit pas être trop important, afin de ne pas tomber dans une recherche aléatoire. Un taux aux alentours de 1% est généralement utillisé.
+						Le taux de mutation ne doit pas être trop important, afin de ne pas tomber dans une recherche aléatoire.
+					</p>
+					<p>
+						Un taux proche de 1% est généralement utillisé.
 					</p>
 				</section>
 
 				<section>
-					<h2>Insertion des nouveaux individus dans la population</h2>
-					<p>
-					Une fois que les nouveaux individus sont créés que ce soit par croisements ou par mutations, il faut sélectionner ceux qui vont continuer à participer à l'amélioration de la population. Ce choix est totalement libre. 
-					</p>
-					<p>
-					Il est possible de refaire une étape d'évaluation des individus nouvellement créés afin de ne conserver que les N meilleurs individus.
-					 </p>
+					<section>
+						<h2>Insertion des nouveaux individus dans la population</h2>
+						<p>
+							Une fois que les nouveaux individus sont créés que ce soit par croisements ou par mutations, il faut sélectionner ceux qui vont continuer à participer à l'amélioration de la population.
+						</p>
+						<p>
+							Ce choix est totalement libre. 
+						</p>
+					</section>
+					<section>					
+						<h2>La selection steady-state</h2>
+						<p>
+							A chaque génération sont sélectionnés quelques chromosomes parmi ceux qui ont le meilleur résultat pour créer des chromosomes fils.
+						</p>
+						<p>
+							Les chromosomes les plus mauvais sont retirés et remplacés par les nouveaux. 
+						</p>
+						<p>
+							Le reste de la population survie à la nouvelle génération.
+						</p>
+					</section>
+					 <section>
+						<h2>L'élitisme</h2>
+						<p>
+							Elle consiste à copier un ou plusieurs des meilleurs chromosomes dans la nouvelle génération. 
+						</p>
+						<p>
+							On génère le reste de la population selon l'algorithme de reproduction.
+						</p>
+						<aside class="notes">
+							Cette méthode améliore considérablement les algorithmes génétiques, car elle permet de ne pas perdre les meilleurs solutions.
+						</aside>
+					</section>
 				</section>
 
 				<section>
 					<section>
 						<h2>Itérations</h2>
-						Il ne reste plus qu'à éffectuer ces opérations un maximum de fois de façon à augmenter la justesse du résultat. On peut choisir d’arrêter l’algorithme lorsqu’un individu obtient un score jugé suffisamment satisfaisant, ou après un certain nombre de générations.
+						<p>
+							Il ne reste plus qu'à éffectuer ces opérations un maximum de fois de façon à augmenter la justesse du résultat. 
+						</p>
+						<p>
+							On peut choisir d’arrêter l’algorithme lorsqu’un individu obtient un score jugé suffisant, ou après un certain nombre de générations, ou après une certaine durée.
+						</p>
 					</section>
 					<section>
 						<img src="img/schema_gen.gif" style="width:680px">
@@ -263,38 +314,61 @@
 				<section>
 					<h2>Conditions d'utilisation</h2>
 					<p>
-						Les algorithmes génétiques peuvent être une bonne solution pour résoudre un problème. Néanmoins, leur utilisation doit être conditionnée par certaines caractéristiques du problème :
-<ul>
-	<li>Le temps de calcul de la fonction d'évalutation doit être relativement court.
-	</li>
-	<li>L'espace de recherches doit être important. En effet, pour un espace dont la taille est faible, il peut être plus sûr de parcourir cet espace de manière exhaustive afin d'obtenir la solution optimale.</li>
-	<li>Il n'existe pas d'algorithmes déterministes adaptés et raisonnables.</li>
-	<li>Lorsque l'on préfère avoir une solution relativement bonne rapidement plutôt qu'avoir la solution optimale en une durée indéfinie (programmation de machines qui doivent être très réactives aux conditions environnantes).</li>
-</ul>
+						<ul>
+							<li>Le temps de calcul de la fonction d'évalutation doit être relativement court.</li>
+							<li>L'espace de recherches doit être important.</li>
+							<li>Il n'existe pas d'algorithmes déterministes adaptés et raisonnables.</li>
+							<li>Lorsque l'on préfère avoir une solution relativement bonne rapidement plutôt qu'avoir la solution optimale en une durée indéfinie.</li>
+						</ul>
 					</p>
-				</section>
-
-				<section>
-					<h2>Applications</h2>
-					<ul>
-						<li>Les algorithmes génétiques ont été mis à contribution en économie et en finance.</li>
-						<li>Certaines industries utilisent les algorithmes génétiques pour la programmation des robots d'assemblage, dans l'industrie automobile par exemple, ou dans le domaine de l'aérodynamique dans un souci d'optimisation structurelle.</li>
-						<li>Mise en place de logiciels d’optimisation comme Evolver pour Microsoft Excel.</li>
-						<li>La NASA a adopté ces algorithmes dans le cadre de l’exploration de Mars pour les déplacements du robot Pathfinder.</li>
-					</ul>
+					<aside class="notes">
+						<p>
+							Les algorithmes génétiques peuvent être une bonne solution pour résoudre un problème, mais pas tous les problèmes.
+						</p>
+						<p>
+							Pour un espace dont la taille est faible, il peut être plus sûr de parcourir cet espace de manière exhaustive afin d'obtenir la solution optimale.
+						</p>
+					</aside>
 				</section>
 
 				<section>
 					<section>
 						<h2>Limites</h2>
 						<ul>
-							<li>La difficulté de la mise en place de la fonction d'évaluation ainsi que certains paramètres comme le taux de mutation ou la taille de la population.</li>
-							<li>L'impossibilité d'être assuré, même après un nombre important de générations, que la solution trouvée soit la meilleure. On peut seulement être sûr que l'on s'est approché de la solution optimale, sans la certitude de l'avoir atteinte.</li>
+							<li>La difficulté de la mise en place de la fonction d'évaluation ainsi que certains paramètres (taux de mutation, de croisement, taille de la population).</li>
+							<li>L'impossibilité d'être assuré que la solution trouvée soit la meilleure.</li>
 						</ul>
+						<aside class="notes">
+							<p>
+								La modélisation peut aussi être un problème.
+							</p>
+							<p>
+								On peut seulement être sûr que l'on s'est approché de la solution optimale, sans la certitude de l'avoir atteinte.
+							</p>
+						</aside>
 					</section>
 					<section>
-						<img src="img/cochon.jpg" style="width: 750px">
+						<img src="img/cochon.png" style="width: 750px">
 					</section>
+				</section>
+
+				<section>
+					<h2>Applications</h2>
+					<ul>
+						<li>En économie et en finance.</li>
+						<li>Dans la programmation des robots d'assemblage dans l'industrie automobile.</li>
+						<li>Dans le domaine de l'aérodynamique dans un souci d'optimisation structurelle.</li>
+						<li>Dans Microsoft Excel (Evolver).</li>
+						<li>Dans le cadre de l’exploration de Mars pour les déplacements du robot Pathfinder.</li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li>Les algorithmes génétiques ont été mis à contribution en économie et en finance.</li>
+							<li>Certaines industries utilisent les algorithmes génétiques pour la programmation des robots d'assemblage, dans l'industrie automobile par exemple, ou dans le domaine de l'aérodynamique dans un souci d'optimisation structurelle.</li>
+							<li>Mise en place de logiciels d’optimisation comme Evolver pour Microsoft Excel.</li>
+							<li>La NASA a adopté ces algorithmes dans le cadre de l’exploration de Mars pour les déplacements du robot Pathfinder.</li>
+						</ul>
+					</aside>
 				</section>
 
 				<section>
@@ -315,7 +389,6 @@
 				<section>
 					<h2>Genetic car</h2>
 					<a href="http://boxcar2d.com/about.html" target="_blank">http://boxcar2d.com/about.html</a>
-
 				</section>
 
 				<section>
