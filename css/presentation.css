@@ -4,3 +4,7 @@ span.date {
 	font-weight: italic;
 	color: blanchedalmond
 }
+img.logo {
+	background-color: white !important;
+    margin-top: 80px !important;
+}
