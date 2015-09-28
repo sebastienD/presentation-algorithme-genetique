@@ -103,7 +103,7 @@
 						<aside class="notes">
 							<ol>
 								<li>Par analogie avec la génétique, chaque individu est codé par un chromosome (comportant donc plusieurs gènes).</li>
-								<li>La population servira de base pour les générations futures. Pour cela, on utilise une fonction d’évaluation qui permettra ensuite de faire la sélection.</li>
+								<li>La fonction d’évaluation permettra de faire la sélection.</li>
 								<li>croisement, enjambenent</li>
 								<li>mutation</li>
 								<li>nombre d'itération, score cible atteint, temps écoulé max fixé arbitrairement atteint</li>
@@ -245,7 +245,10 @@
 						</p>
 						<aside class="notes">
 							<p>
-								L'hybridation est mis en place pour que les nouveaux chromosomes gardent une partie des chromosomes anciens. Ceci dans le but d'obtenir (ou pas) de meilleurs chromosomes. 
+								Le but est d'obtenir (ou pas) de meilleurs chromosomes. 
+							</p>
+							<p>
+								croisment, un point, multi-points, uniforme.
 							</p>
 						</aside>
 					</section>
@@ -265,17 +268,42 @@
 					<p>
 						Un taux proche de 1% est généralement utillisé.
 					</p>
+					<aside class="notes">
+						<p>
+							S'éligner de notre espace de recherche. 
+						</p>
+					</aside>
 				</section>
 
 				<section>
+					<h2>Insertion des nouveaux individus dans la population</h2>
+					<p>
+						Une fois que les nouveaux individus sont créés que ce soit par croisements ou par mutations, il faut sélectionner ceux qui vont continuer à participer à l'amélioration de la population.
+					</p>
+					<p>
+						Ce choix est totalement libre. 
+					</p>
+				</section>
+				
+				<section>
 					<section>
-						<h2>Insertion des nouveaux individus dans la population</h2>
+						<h2>Optimisation</h2>
+						<ol>
+							<li>L'élitisme</li>
+							<li>La selection steady-state</li>
+						</ol>
+					</section>
+					<section>
+						<h2>L'élitisme</h2>
 						<p>
-							Une fois que les nouveaux individus sont créés que ce soit par croisements ou par mutations, il faut sélectionner ceux qui vont continuer à participer à l'amélioration de la population.
+							Elle consiste à copier un ou plusieurs des meilleurs chromosomes dans la nouvelle génération. 
 						</p>
 						<p>
-							Ce choix est totalement libre. 
+							On génère le reste de la population selon l'algorithme de reproduction.
 						</p>
+						<aside class="notes">
+							Cette méthode améliore considérablement les algorithmes génétiques, car elle permet de ne pas perdre les meilleurs solutions.
+						</aside>
 					</section>
 					<section>					
 						<h2>La selection steady-state</h2>
@@ -288,18 +316,6 @@
 						<p>
 							Le reste de la population survie à la nouvelle génération.
 						</p>
-					</section>
-					 <section>
-						<h2>L'élitisme</h2>
-						<p>
-							Elle consiste à copier un ou plusieurs des meilleurs chromosomes dans la nouvelle génération. 
-						</p>
-						<p>
-							On génère le reste de la population selon l'algorithme de reproduction.
-						</p>
-						<aside class="notes">
-							Cette méthode améliore considérablement les algorithmes génétiques, car elle permet de ne pas perdre les meilleurs solutions.
-						</aside>
 					</section>
 				</section>
 
