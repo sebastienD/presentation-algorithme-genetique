@@ -14,23 +14,21 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<link rel="stylesheet" href="css/presentation.css">
+		<link rel="stylesheet" href="asset/css/presentation.css">
 
 		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
 		<script>
-			if( window.location.search.match( /print-pdf/gi ) ) {
-				var link = document.createElement( 'link' );
-				link.rel = 'stylesheet';
-				link.type = 'text/css';
-				link.href = 'css/print/pdf.css';
-				document.getElementsByTagName( 'head' )[0].appendChild( link );
-			}
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 
 		<!--[if lt IE 9]>
@@ -52,9 +50,9 @@
 				</section>
 
 				<section>
-					<h1>Moi, me, I</h1>
+					<h2>Moi, me, I</h2>
 					<p>
-						<img class="logo" src="img/logo-zenika.png"> 
+						<img class="logo" src="asset/img/logo-zenika.png"> 
 					</p>
 				</section>
 
@@ -154,7 +152,7 @@
 					<section>
 						<h2>La selection par roulette</h2>
 						<p>
-							<img width="543px" height="485px" src="img/roue.png">
+							<img width="543px" height="485px" src="asset/img/roue.png">
 						</p>
 						<aside class="notes">
 							Un individu peur être sélectionné plusieurs fois.
@@ -248,7 +246,7 @@
 						</aside>
 					</section>
 					<section>
-						<img src="img/genes.png" style="width:720px">
+						<img src="asset/img/genes.png" style="width:720px">
 					</section>
 				</section>
 
@@ -325,7 +323,7 @@
 						</p>
 					</section>
 					<section>
-						<img src="img/schema_gen.gif" style="width:680px">
+						<img src="asset/img/schema_gen.gif" style="width:680px">
 					</section>
 				</section>
 
@@ -366,7 +364,7 @@
 						</aside>
 					</section>
 					<section>
-						<img src="img/cochon.png" style="width: 750px">
+						<img src="asset/img/cochon.png" style="width: 750px">
 					</section>
 				</section>
 
@@ -405,8 +403,12 @@
 				</section>
 
 				<section>
-					<h2>Genetic car</h2>
+					<h2>BoxCar 2D</h2>
 					<a href="http://boxcar2d.com/about.html" target="_blank">http://boxcar2d.com/about.html</a>
+					<h2>HTML5 Genetic Cars</h2>
+					<a href="http://rednuht.org/genetic_cars_2/" target="_blank">http://rednuht.org/genetic_cars_2/</a>
+					<h2>Genetic car</h2>
+					<a href="http://genetic-car.herokuapp.com/" target="_blank">http://genetic-car.herokuapp.com/</a>
 				</section>
 
 			</div>
@@ -414,7 +416,7 @@
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+		<script src="js/reveal.js"></script>
 
 		<script>
 
@@ -426,8 +428,9 @@
 				history: true,
 				center: true,
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+				//theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				//transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
 
 				// Parallax scrolling
 				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
