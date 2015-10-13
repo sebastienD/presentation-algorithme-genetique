@@ -60,7 +60,7 @@
 					<section>
 						<h2>Wikipedia</h2>
 						<p><blockquote>
-							&ldquo;Les algorithmes génétiques appartiennent à la famille des <a href="#" class="navigate-down">algorithmes évolutionnistes</a>. Leur but est d'obtenir une solution approchée à un problème d'optimisation, lorsqu'il n'existe pas de méthode exacte (ou que la solution est inconnue) pour le résoudre en un temps raisonnable. Les algorithmes génétiques utilisent la notion de sélection naturelle et l'appliquent à une population de solutions potentielles au problème donné. La solution est approchée par « bonds » successifs.&rdquo;
+							&ldquo;Les algorithmes génétiques appartiennent à la famille des <a href="#" class="navigate-down">algorithmes évolutionnistes</a>. Leur but est d'obtenir une solution approchée à un problème d'optimisation, lorsqu'il n'existe pas de méthode exacte pour le résoudre en un temps raisonnable. Les algorithmes génétiques utilisent la notion de sélection naturelle et l'appliquent à une population de solutions potentielles au problème donné. La solution est approchée par « bonds » successifs.&rdquo;
 						</blockquote></p>
 					</section>
 					<section>
@@ -100,10 +100,9 @@
 						</ol>
 						<aside class="notes">
 							<ol>
-								<li>Par analogie avec la génétique, chaque individu est codé par un chromosome (comportant donc plusieurs gènes).</li>
+								<li>Par analogie avec la génétique, chaque individu comporte plusieurs gènes.</li>
+								<li>un individu = une solution
 								<li>La fonction d’évaluation permettra de faire la sélection.</li>
-								<li>croisement, enjambenent</li>
-								<li>mutation</li>
 								<li>nombre d'itération, score cible atteint, temps écoulé max</li>
 							</ol>
 						</aside>
@@ -122,7 +121,7 @@
 				<section>
 					<h2>La population initiale</h2>
 					<p>
-						La taille de la population initiales est laissée à l'appéciation du programmeur.
+						La taille de la population initiale est laissée à l'appréciation du programmeur.
 						Une taille de 100 ou 150 individus s'avèrera souvent suffisante, tant pour la qualité des solutions trouvées que pour le temps d'exécution.
 					</p>
 					<aside class="notes">
@@ -133,7 +132,7 @@
 				<section>
 					<h2>La fonction d'évaluation ou fonction fitness</h2>
 					<p>
-						La fonction d'évalation sera utilisée pour calculer le score d'un individu (point dans l'espace de recherche). L'évaluation d'un individu ne dépend pas de celle des autres individus. 
+						La fonction d'évaluation sera utilisée pour calculer le score d'un individu (point dans l'espace de recherche). L'évaluation d'un individu ne dépend pas de celle des autres individus. 
 					</p>
 					<aside class="notes">
 						Permettre de sélectionner ou de refuser un individu.
@@ -142,15 +141,15 @@
 
 				<section>
 					<section>
-						<h2>La selection</h2>
+						<h2>La sélection</h2>
 						<ol>
-							<li>la selection par roulette</li>
-							<li>la selection par rang</li>
-							<li>la selection par tournoi</li>
+							<li>la sélection par roulette</li>
+							<li>la sélection par rang</li>
+							<li>la sélection par tournoi</li>
 						</ol>
 					</section>
 					<section>
-						<h2>La selection par roulette</h2>
+						<h2>La sélection par roulette</h2>
 						<p>
 							<img width="543px" height="485px" src="asset/img/roue.png">
 						</p>
@@ -159,11 +158,11 @@
 						</aside>
 					</section>
 					<section>
-						<h2>La selection par rang</h2>
+						<h2>La sélection par rang</h2>
 						<p>
 							<table>
 								<thead>
-									<th>Chromosomes</th>
+									<th>Individus</th>
 									<th>1</th>
 									<th>2</th>
 									<th>3</th>
@@ -231,17 +230,17 @@
 					<section>
 						<h2>Le croisement ou hybridation ou enjambement ou crossover</h2>
 						<p>
-							On sélectionnne des gènes parmis deux individus appelés parents. A partir de ces gènes sont générés les enfants.
+							On sélectionne des gènes parmi deux individus appelés parents. A partir de ces gènes sont générés les enfants.
 						</p>
 						<p>
 							Il n'est pas nécessaire et surtout pas recommandé de croiser tous les individus d'une population.
 						</p>
 						<aside class="notes">
 							<p>
-								Le but est d'obtenir (ou pas) de meilleurs chromosomes. 
+								Le but est d'obtenir (ou pas) de meilleurs individus. 
 							</p>
 							<p>
-								croisment, un point, multi-points, uniforme.
+								croisement: un point, multi-points, uniforme.
 							</p>
 						</aside>
 					</section>
@@ -253,7 +252,7 @@
 				<section>
 					<h2>La mutation</h2>
 					<p>
-						Au sein d’un chromosome, un gène est substitué à un autre de manière aléatoire. Ceci permet d’éviter à l’algorithme de partir dans un optimum local. 
+						Au sein d’un individu, un gène est substitué à un autre de manière aléatoire. Ceci permet d’éviter à l’algorithme de partir dans un optimum local. 
 					</p>
 					<p>
 						Le taux de mutation ne doit pas être trop important, afin de ne pas tomber dans une recherche aléatoire.
@@ -271,7 +270,7 @@
 				<section>
 					<h2>Insertion des nouveaux individus dans la population</h2>
 					<p>
-						Une fois que les nouveaux individus sont créés que ce soit par croisements ou par mutations, il faut sélectionner ceux qui vont continuer à participer à l'amélioration de la population.
+						Une fois les nouveaux individus créés, que ce soit par croisements ou par mutations, il faut sélectionner ceux qui vont continuer à participer à l'amélioration de la population.
 					</p>
 					<p>
 						Ce choix est totalement libre. 
@@ -283,13 +282,13 @@
 						<h2>Optimisation</h2>
 						<ol>
 							<li>L'élitisme</li>
-							<li>La selection steady-state</li>
+							<li>La sélection steady-state</li>
 						</ol>
 					</section>
 					<section>
 						<h2>L'élitisme</h2>
 						<p>
-							Elle consiste à copier un ou plusieurs des meilleurs chromosomes dans la nouvelle génération. 
+							Elle consiste à copier un ou plusieurs des meilleurs individus dans la nouvelle génération. 
 						</p>
 						<p>
 							On génère le reste de la population selon l'algorithme de reproduction.
@@ -301,10 +300,10 @@
 					<section>					
 						<h2>La selection steady-state</h2>
 						<p>
-							A chaque génération sont sélectionnés quelques chromosomes parmi ceux qui ont le meilleur résultat pour créer des chromosomes fils.
+							A chaque génération sont sélectionnés quelques individus parmi ceux qui ont le meilleur résultat pour créer des individus fils.
 						</p>
 						<p>
-							Les chromosomes les plus mauvais sont retirés et remplacés par les nouveaux. 
+							Les individus les plus mauvais sont retirés et remplacés par les nouveaux. 
 						</p>
 						<p>
 							Le reste de la population survie à la nouvelle génération.
@@ -319,7 +318,12 @@
 							Il ne reste plus qu'à éffectuer ces opérations un maximum de fois de façon à augmenter la justesse du résultat. 
 						</p>
 						<p>
-							On peut choisir d’arrêter l’algorithme lorsqu’un individu obtient un score jugé suffisant, ou après un certain nombre de générations, ou après une certaine durée.
+							On peut choisir d’arrêter l’algorithme :
+							<ul>
+								<li>lorsqu’un individu obtient un score jugé suffisant</li>
+								<li>après un certain nombre de générations</li>
+								<li>après une certaine durée</li>
+							</ul>
 						</p>
 					</section>
 					<section>
@@ -328,13 +332,12 @@
 				</section>
 
 				<section>
-					<h2>Conditions d'utilisation</h2>
+					<h2>Quand utiliser un algorithme génétique ?</h2>
 					<p>
 						<ul>
-							<li>Le temps de calcul de la fonction d'évalutation doit être relativement court.</li>
-							<li>L'espace de recherches doit être important.</li>
-							<li>Il n'existe pas d'algorithmes déterministes adaptés et raisonnables.</li>
-							<li>Lorsque l'on préfère avoir une solution relativement bonne rapidement plutôt qu'avoir la solution optimale en une durée indéfinie.</li>
+							<li>quand l'espace de recherches est important</li>
+							<li>quand il n'existe pas d'algorithmes déterministes adaptés et raisonnables</li>
+							<li>Lorsque l'on préfère avoir une solution relativement bonne rapidement</li>
 						</ul>
 					</p>
 					<aside class="notes">
@@ -379,8 +382,6 @@
 					</ul>
 					<aside class="notes">
 						<ul>
-							<li>Les algorithmes génétiques ont été mis à contribution en économie et en finance.</li>
-							<li>Certaines industries utilisent les algorithmes génétiques pour la programmation des robots d'assemblage, dans l'industrie automobile par exemple, ou dans le domaine de l'aérodynamique dans un souci d'optimisation structurelle.</li>
 							<li>Mise en place de logiciels d’optimisation comme Evolver pour Microsoft Excel.</li>
 							<li>La NASA a adopté ces algorithmes dans le cadre de l’exploration de Mars pour les déplacements du robot Pathfinder.</li>
 						</ul>
